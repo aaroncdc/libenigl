@@ -90,7 +90,6 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam,
             wglMakeCurrent(NULL, NULL);
             wglDeleteContext(hRC);
             PostQuitMessage(0);
-            DestroyWindow(hwnd);
             return wParam;
         break;
         case WM_SIZE:
@@ -362,5 +361,11 @@ void EGL_SetWindowIcon(HICON icon_big, HICON icon_small, LPCSTR iconName)
 void EGL_callInitFunc()
 {
     glWindow.init_func();
+    return;
+}
+
+void EGL_CloseWindow()
+{
+    SendMessage(EGL_GetWindowHWND(), WM_CLOSE, 0x0L, 0x0L);
     return;
 }

@@ -50,5 +50,6 @@ void EGL_SetWindowPosition(unsigned int, unsigned int);
 void EGL_SetWindowIcon(HICON, HICON, LPCSTR);
 void EGL_callInitFunc(void);
 void EGL_ToggleFullScreen(void);
+void EGL_CloseWindow();
 
 #endif
